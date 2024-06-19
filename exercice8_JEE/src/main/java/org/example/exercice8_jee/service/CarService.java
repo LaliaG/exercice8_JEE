@@ -1,5 +1,6 @@
 package org.example.exercice8_jee.service;
 
+import org.example.exercice8_jee.data.FakeDB;
 import org.example.exercice8_jee.model.Car;
 
 import java.util.ArrayList;
@@ -7,7 +8,27 @@ import java.util.List;
 import java.util.Optional;
 
 public class CarService {
-    private List<Car> cars = new ArrayList<>();
+
+    public List<Car> getAllCars() {
+        return FakeDB.getAllCars();
+    }
+
+    public Optional<Car> getCarById(int id) {
+        return FakeDB.getCarById(id);
+    }
+
+    public Car addCar(Car car) {
+        return FakeDB.addCar(car);
+    }
+
+    public Optional<Car> updateCar(int id, Car car) {
+        return FakeDB.updateCar(id, car);
+    }
+
+    public boolean deleteCar(int id) {
+        return FakeDB.deleteCar(id);
+    }
+   /* private List<Car> cars = new ArrayList<>();
     private int currentId = 1;
 
     public CarService() {
@@ -43,5 +64,5 @@ public class CarService {
 
     public boolean deleteCar(int id) {
         return cars.removeIf(car -> car.getId() == id);
-    }
+    }*/
 }
